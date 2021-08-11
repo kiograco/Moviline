@@ -1,25 +1,38 @@
-import logo from './logo.svg';
+import React from 'react';
+import {Link} from "react-router-dom";
 import './App.css';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Home from './pags/Home/index';
+import Series from './pags/Series/index';
+import Filmes from './pags/Filmes/index';
+import Playlists from './pags/Playlists/index';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <body>
+          <h1>MOVILINE</h1>
+
+          <div>
+            <BrowserRouter>
+              <nav>
+                <Link to='/Home'>Home</Link>
+                <Link to='/Series'>Serie</Link>
+                <Link to='/Filmes'>Filme</Link>
+                <Link to='/Playlists'>Playlists</Link>
+              </nav>
+              <Switch>
+                  {/* <Route path="/" exact={true} component={App} /> */}
+                  <Route path="/Series" component={Series} />
+                  <Route path="/Filmes" component={Filmes} />
+                  <Route path="/Playlists" component={Playlists} />
+                  <Route path="/Home" component={Home} />
+              </Switch>
+            </ BrowserRouter>
+          </div>
+    
+    </body>
+  )
 }
 
 export default App;
