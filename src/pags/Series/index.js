@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from "react";
 import api from "../../services/Api";
 
-
+import { DivFilmePrincial } from "../Filmes/style";
+import { H3TituloPrincipal } from "../Filmes/style";
+import { PdescricaoPrincipal } from "../Filmes/style";
+import { DivConteiner } from "../Filmes/style";
+import { DivcarrocelFilme } from "../Filmes/style";
+import { DivCarrocelThema } from "../Filmes/style";
+import { ImgBoxfilme } from "../Filmes/style";
+import { Body } from "../Filmes/style";
 
 
 
@@ -36,41 +43,41 @@ function getRandomIntInclusive(min, max) {
 let seriePrincipal = getRandomIntInclusive(1,20);
   
   return (
-    <body>
+    <Body>
       <main>
-        <div class="filme-principal" style={{width:"100%" ,backgroundImage:`url("https://www.themoviedb.org/t/p/original/${list[seriePrincipal]?.backdrop_path}")`,}}>
-            <div class="container"  >
-                <h3 class="titulo">{list[seriePrincipal]?.name}</h3>
-                <p class="descricao">{list[seriePrincipal]?.overview}</p>
+        <DivFilmePrincial style={{width:"100%" ,backgroundImage:`url("https://www.themoviedb.org/t/p/original/${list[seriePrincipal]?.backdrop_path}")`,}}>
+            <DivConteiner>
+                <H3TituloPrincipal>{list[seriePrincipal]?.name}</H3TituloPrincipal>
+                <PdescricaoPrincipal>{list[seriePrincipal]?.overview}</PdescricaoPrincipal>
   
-            </div>
-        </div>
+            </DivConteiner>
+        </DivFilmePrincial>
       </main>
-      <div class="carrosel-filmes">
-        <div class="owl-carousel owl-theme"style={{display:"flex",flexDirection:"row",justifyContent:"space-between"}}>
-                <div class="item">
-                    <img class="box-filme" src={`https://www.themoviedb.org/t/p/original/${list[getRandomIntInclusive(1,4)]?.poster_path}`} alt="" srcset=""/>
+      <DivcarrocelFilme>
+        <DivCarrocelThema>
+                <div>
+                    <ImgBoxfilme src={`https://www.themoviedb.org/t/p/original/${list[getRandomIntInclusive(1,4)]?.poster_path}`} alt="" srcset=""/>
                 </div>
-                <div class="item">
-                    <img class="box-filme" src={`https://www.themoviedb.org/t/p/original/${list[getRandomIntInclusive(5,8)]?.poster_path}`} alt="" srcset=""/>
+                <div>
+                    <ImgBoxfilme src={`https://www.themoviedb.org/t/p/original/${list[getRandomIntInclusive(5,8)]?.poster_path}`} alt="" srcset=""/>
                 </div>
-                <div class="item">
-                    <img class="box-filme" src={`https://www.themoviedb.org/t/p/original/${list[getRandomIntInclusive(9,12)]?.poster_path}`} alt="" srcset=""/>
+                <div>
+                    <ImgBoxfilme src={`https://www.themoviedb.org/t/p/original/${list[getRandomIntInclusive(9,12)]?.poster_path}`} alt="" srcset=""/>
                 </div>
-                <div class="item">
-                    <img class="box-filme" src={`https://www.themoviedb.org/t/p/original/${list[getRandomIntInclusive(13,15)]?.poster_path}`} alt="" srcset=""/>
+                <div>
+                    <ImgBoxfilme src={`https://www.themoviedb.org/t/p/original/${list[getRandomIntInclusive(13,15)]?.poster_path}`} alt="" srcset=""/>
                 </div>
-                <div class="item">
-                    <img class="box-filme" src={`https://www.themoviedb.org/t/p/original/${list[getRandomIntInclusive(16,18)]?.poster_path}`} alt="" srcset=""/>
+                <div>
+                    <ImgBoxfilme src={`https://www.themoviedb.org/t/p/original/${list[getRandomIntInclusive(16,18)]?.poster_path}`} alt="" srcset=""/>
                 </div>
-                <div class="item">
-                    <img class="box-filme" src={`https://www.themoviedb.org/t/p/original/${list[getRandomIntInclusive(19,20)]?.poster_path}`} alt="" srcset=""/>
+                <div>
+                    <ImgBoxfilme src={`https://www.themoviedb.org/t/p/original/${list[getRandomIntInclusive(19,20)]?.poster_path}`} alt="" srcset=""/>
                 </div>
       
-        </div>
+        </DivCarrocelThema>
         
-      </div>
+      </DivcarrocelFilme>
  
-    </body>
+    </Body>
   )
 }

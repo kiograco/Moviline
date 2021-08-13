@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 import api from "../../services/Api";
-import './style.css';
+
+
+import { DivFilmePrincial,H3TituloPrincipal,PdescricaoPrincipal,DivConteiner,DivcarrocelFilme,DivCarrocelThema,ImgBoxfilme,Body } from "./style";
+
+import { seriePrincipal, getRandomIntInclusive } from "../../components/Funcoes";
+
+
 
 export default function Home() {
   const [list, setList] = useState([]);
@@ -22,50 +28,48 @@ export default function Home() {
   fetch();
   }, []);
 
-  console.log(list[0])
 
-  function getRandomIntInclusive(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-  let seriePrincipal = getRandomIntInclusive(1,20);
-  return (
-    <body>
-      <main>
-        <div class="filme-principal" style={{width:"100%" ,backgroundImage:`url("https://www.themoviedb.org/t/p/original/${list[seriePrincipal]?.backdrop_path}")`,}}>
-            <div class="container"  >
-                <h3 class="titulo">{list[seriePrincipal]?.title}</h3>
-                <p class="descricao">{list[seriePrincipal]?.overview}</p>
-  
-            </div>
-        </div>
-      </main>
-      <div class="carrosel-filmes">
-        <div class="owl-carousel owl-theme"style={{display:"flex",flexDirection:"row",justifyContent:"space-between"}}>
-                <div class="item">
-                    <img class="box-filme" src={`https://www.themoviedb.org/t/p/original/${list[getRandomIntInclusive(1,4)]?.poster_path}`} alt="" srcset=""/>
-                </div>
-                <div class="item">
-                    <img class="box-filme" src={`https://www.themoviedb.org/t/p/original/${list[getRandomIntInclusive(5,9)]?.poster_path}`} alt="" srcset=""/>
-                </div>
-                <div class="item">
-                    <img class="box-filme" src={`https://www.themoviedb.org/t/p/original/${list[getRandomIntInclusive(10,12)]?.poster_path}`} alt="" srcset=""/>
-                </div>
-                <div class="item">
-                    <img class="box-filme" src={`https://www.themoviedb.org/t/p/original/${list[getRandomIntInclusive(13,15)]?.poster_path}`} alt="" srcset=""/>
-                </div>
-                <div class="item">
-                    <img class="box-filme" src={`https://www.themoviedb.org/t/p/original/${list[getRandomIntInclusive(16,17)]?.poster_path}`} alt="" srcset=""/>
-                </div>
-                <div class="item">
-                    <img class="box-filme" src={`https://www.themoviedb.org/t/p/original/${list[getRandomIntInclusive(18,20)]?.poster_path}`} alt="" srcset=""/>
-                </div>
-                
-                
-        </div>
-      </div>
  
-    </body>
+
+
+
+
+  return (
+    <Body>
+      <main>
+        <DivFilmePrincial style={{backgroundImage: `url("https://www.themoviedb.org/t/p/original/${list[seriePrincipal]?.backdrop_path}")`}}>
+            <DivConteiner>
+                <H3TituloPrincipal>{list[seriePrincipal]?.title}</H3TituloPrincipal>
+                <PdescricaoPrincipal>{list[seriePrincipal]?.overview}</PdescricaoPrincipal>
+  
+            </DivConteiner>
+        </DivFilmePrincial>
+      </main>
+      <DivcarrocelFilme>
+        <DivCarrocelThema>
+                <div>
+                    <ImgBoxfilme src={`https://www.themoviedb.org/t/p/original/${list[getRandomIntInclusive(1,4)]?.poster_path}`} alt="" srcset=""/>
+                </div>
+                <div>
+                    <ImgBoxfilme src={`https://www.themoviedb.org/t/p/original/${list[getRandomIntInclusive(5,9)]?.poster_path}`} alt="" srcset=""/>
+                </div>
+                <div >
+                    <ImgBoxfilme src={`https://www.themoviedb.org/t/p/original/${list[getRandomIntInclusive(10,12)]?.poster_path}`} alt="" srcset=""/>
+                </div>
+                <div>
+                    <ImgBoxfilme src={`https://www.themoviedb.org/t/p/original/${list[getRandomIntInclusive(13,15)]?.poster_path}`} alt="" srcset=""/>
+                </div>
+                <div>
+                    <ImgBoxfilme src={`https://www.themoviedb.org/t/p/original/${list[getRandomIntInclusive(16,17)]?.poster_path}`} alt="" srcset=""/>
+                </div>
+                <div>
+                    <ImgBoxfilme src={`https://www.themoviedb.org/t/p/original/${list[getRandomIntInclusive(18,20)]?.poster_path}`} alt="" srcset=""/>
+                </div>
+                
+                
+        </DivCarrocelThema>
+      </DivcarrocelFilme>
+ 
+    </Body>
   )
 }

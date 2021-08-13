@@ -7,10 +7,12 @@ import Series from './pags/Series/index';
 import Filmes from './pags/Filmes/index';
 import Playlists from './pags/Playlists/index';
 
+import {Body} from './pags/Filmes/style';
+
 
 function App() {
   return (
-    <body>
+    <Body>
           <h1>MOVILINE</h1>
 
           <div>
@@ -31,7 +33,7 @@ function App() {
             </ BrowserRouter>
           </div>
     
-    </body>
+    </Body>
   )
 }
 
