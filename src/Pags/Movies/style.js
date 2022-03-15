@@ -1,5 +1,24 @@
 import styled from "styled-components";
 
+export const responsive = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  };
+
 export const DivFilmePrincial = styled.div`
     font-size:16px;
     background: linear-gradient(rgba(0,0,0,.50),rgba(0,0,0,.50)100%);
@@ -39,15 +58,14 @@ export const DivConteiner = styled.div`
 `
 export const DivcarrocelFilme = styled.div`
     margin-top:5px;
-`
-export const DivCarrocelThema = styled.div`
-display:flex;
-justify-content: space-between;
-flex-direction: row;
-
+    .Carousels{
+        display:flex;
+        justify-content: space-between;
+        flex-direction: row;
+    }
 `
 export const ImgBoxfilme = styled.img`
-    width: 200px;
+    width: 88%;
     display: flex;
     cursor: pointer;
     flex-direction: row;
